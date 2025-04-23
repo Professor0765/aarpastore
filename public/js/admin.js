@@ -1,7 +1,7 @@
 // Admin Panel JavaScript
 
 // Constants
-const API_URL = 'http://localhost:3000/api';
+const API_URL = `${window.location.protocol}//${window.location.host}/api`;
 const TOKEN_KEY = 'admin_token';
 
 // DOM Elements
