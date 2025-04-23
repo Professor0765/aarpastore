@@ -12,8 +12,8 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: true, // Allow all origins
-  credentials: true, // Allow credentials
+  origin: ['http://pawanshrestha555.com.np', 'https://pawanshrestha555.com.np', 'http://www.pawanshrestha555.com.np', 'https://www.pawanshrestha555.com.np'],
+  credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
