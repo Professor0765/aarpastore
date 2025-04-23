@@ -14,18 +14,32 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Serve static files from public directory
-app.use('/static', express.static('public'));
+// Ensure upload directory exists
+const uploadDir = 'public/images/products';
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
 
-// Admin panel route
+// Serve static files from public directory
+app.use('/static', express.static(path.join(__dirname, 'public')));
+
+// Admin panel routes
 app.get('/admin', (req, res) => {
   res.sendFile(path.join(__dirname, 'admin.html'));
+});
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/aarpa-store', {
   useNewUrlParser: true,
   useUnifiedTopology: true
+}).then(() => {
+  console.log('Connected to MongoDB');
+}).catch((err) => {
+  console.error('MongoDB connection error:', err);
 });
 
 // Models
@@ -173,14 +187,23 @@ apiRouter.delete('/products/:id', authenticateToken, async (req, res) => {
 // Mount API routes
 app.use('/api', apiRouter);
 
-// Error handling middleware
-app.use((err, req, res, next) => {
-  if (err instanceof multer.MulterError) {
-    if (err.code === 'LIMIT_FILE_SIZE') {
-      return res.status(400).json({ message: 'File is too large. Maximum size is 5MB.' });
-    }
+// Error handling for 404
+app.use((req, res, next) => {
+  if (req.path.startsWith('/api/')) {
+    res.status(404).json({ message: 'API endpoint not found' });
+  } else {
+    res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
   }
-  res.status(500).json({ message: err.message });
+});
+
+// Global error handler
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  if (req.path.startsWith('/api/')) {
+    res.status(500).json({ message: 'Internal server error' });
+  } else {
+    res.status(500).sendFile(path.join(__dirname, 'public', '500.html'));
+  }
 });
 
 // Initialize admin user
