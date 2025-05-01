@@ -1,27 +1,59 @@
-<main>
-    <section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <script async defer crossorigin="anonymous" 
+            src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0">
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 0;
+        }
+        main {
+            padding: 2rem;
+        }
+        footer {
+            background-color: #f1f1f1;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
         <h1>Welcome to My Website</h1>
-        <p>Check out our Facebook page below!</p>
-        <div class="fb-page" 
-             data-href="https://www.facebook.com/pawan.shrestha.228123" 
-             data-tabs="timeline" 
-             data-width="" 
-             data-height="" 
-             data-small-header="false" 
-             data-adapt-container-width="true" 
-             data-hide-cover="false" 
-             data-show-facepile="true">
-            <blockquote cite="https://www.facebook.com/pawan.shrestha.228123" 
-                        class="fb-xfbml-parse-ignore">
-                <a href="https://www.facebook.com/pawan.shrestha.228123">Pawan Shrestha</a>
-            </blockquote>
-        </div>
-    </section>
-</main>
-<footer>
-    <p>&copy; 2023 My Website</p>
-</footer>
-<script src="js/script.js"></script>
-<script async defer crossorigin="anonymous" 
-        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0">
-</script>
+    </header>
+    <main>
+        <section>
+            <h2>Follow Me on Facebook</h2>
+            <div class="fb-page" 
+                 data-href="https://www.facebook.com/pawan.shrestha.228123" 
+                 data-tabs="timeline" 
+                 data-width="500" 
+                 data-height="" 
+                 data-small-header="false" 
+                 data-adapt-container-width="true" 
+                 data-hide-cover="false" 
+                 data-show-facepile="true">
+                <blockquote cite="https://www.facebook.com/pawan.shrestha.228123" 
+                            class="fb-xfbml-parse-ignore">
+                    <a href="https://www.facebook.com/pawan.shrestha.228123">Pawan Shrestha</a>
+                </blockquote>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 My Website</p>
+    </footer>
+</body>
+</html>
