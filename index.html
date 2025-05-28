@@ -122,6 +122,11 @@
             .profile-header h1 {
                 font-size: 2rem;
             }
+
+            .profile-card img {
+                max-width: 120px;
+                margin-bottom: 1rem;
+            }
         }
 
         .whatsapp-float {
@@ -165,6 +170,17 @@
                 font-size: 30px;
             }
         }
+
+        .profile-card img {
+            display: block;
+            max-width: 150px;
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem auto;
+            border: 5px solid var(--light-bg);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
@@ -175,6 +191,7 @@
     </header>
     <main class="container">
         <div class="profile-card">
+            <img src="img/profile.jpg" alt="Your Profile Image">
             <div class="profile-header">
                 <h1>Pawan Shrestha</h1>
                 <p>Web Developer & Designer</p>
