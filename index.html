@@ -3,51 +3,344 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
-    <script async defer crossorigin="anonymous" 
-            src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0">
-    </script>
+    <title>AARPA Store - Your Shopping Destination</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            text-align: center;
+            line-height: 1.6;
         }
         header {
             background-color: #4CAF50;
             color: white;
             padding: 1rem 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+        }
+        nav a:hover {
+            background-color: #555;
+            border-radius: 4px;
         }
         main {
             padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        .product-title {
+            margin: 1rem 0;
+            font-size: 1.2rem;
+        }
+        .product-price {
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        .buy-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        .buy-button:hover {
+            background-color: #45a049;
         }
         footer {
             background-color: #f1f1f1;
-            padding: 1rem 0;
+            padding: 2rem 0;
             margin-top: 2rem;
+            text-align: center;
+        }
+        .contact-info {
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .cart-icon {
+            position: relative;
+            display: inline-block;
+            margin-left: 1rem;
+            cursor: pointer;
+        }
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 12px;
+        }
+        .cart-sidebar {
+            position: fixed;
+            right: -400px;
+            top: 0;
+            width: 400px;
+            height: 100vh;
+            background: white;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+            z-index: 1000;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .cart-sidebar.active {
+            right: 0;
+        }
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            gap: 10px;
+        }
+        .cart-item img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+        }
+        .cart-total {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: right;
+        }
+        .checkout-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            width: 100%;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .quantity-control button {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .admin-link {
+            color: white;
+            text-decoration: none;
+            margin-left: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #ff4444;
+            border-radius: 4px;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to My Profile</h1>
+        <h1>AARPA Store</h1>
+        <p>Your One-Stop Shopping Destination</p>
     </header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <div class="cart-icon" onclick="toggleCart()">
+            🛒 <span class="cart-count">0</span>
+        </div>
+    </nav>
     <main>
-        <section>
-            <h2>Follow Me on Facebook</h2>
-            <p>
-                <a href="https://www.facebook.com/pawan.shrestha.228123/" target="_blank">
-                    Visit My Facebook Profile
-                </a>
-            </p>
-        </section>
-                </blockquote>
+        <section id="products">
+            <h2>Featured Products</h2>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here -->
             </div>
         </section>
+        
+        <section class="contact-info">
+            <h2>Contact Us</h2>
+            <p>Have questions? Reach out to us!</p>
+            <p>Email: your.email@example.com</p>
+            <p>Phone: (123) 456-7890</p>
+        </section>
     </main>
+
+    <div class="cart-sidebar">
+        <h2>Shopping Cart</h2>
+        <div id="cart-items"></div>
+        <div class="cart-total">
+            Total: $<span id="cart-total">0.00</span>
+        </div>
+        <button class="checkout-button" onclick="checkout()">Proceed to Checkout</button>
+    </div>
+
     <footer>
-        <p>&copy; DOnt Worry Be Happy</p>
+        <p>&copy; 2024 AARPA Store. All rights reserved.</p>
+        <p>Follow us on <a href="https://www.facebook.com/pawan.shrestha.228123/" target="_blank">Facebook</a></p>
     </footer>
+
+    <script>
+        // Load products from localStorage
+        function loadProducts() {
+            const products = JSON.parse(localStorage.getItem('products')) || [];
+            const productsGrid = document.getElementById('productsGrid');
+            
+            if (products.length === 0) {
+                productsGrid.innerHTML = '<p>No products available. Please check back later.</p>';
+                return;
+            }
+
+            productsGrid.innerHTML = products.map((product, index) => `
+                <div class="product-card">
+                    <img src="${product.image}" alt="${product.name}" class="product-image">
+                    <h3 class="product-title">${product.name}</h3>
+                    <p class="product-price">$${product.price}</p>
+                    <p>${product.description}</p>
+                    <button class="buy-button" onclick="addToCart(${index})">Add to Cart</button>
+                </div>
+            `).join('');
+        }
+
+        // Cart functions
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function addToCart(productIndex) {
+            const products = JSON.parse(localStorage.getItem('products')) || [];
+            const product = products[productIndex];
+
+            const existingItem = cart.find(item => item.index === productIndex);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    index: productIndex,
+                    name: product.name,
+                    price: product.price,
+                    quantity: 1,
+                    image: product.image
+                });
+            }
+            saveCart();
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            const cartCount = document.querySelector('.cart-count');
+            const cartTotal = document.getElementById('cart-total');
+            
+            cartItems.innerHTML = '';
+            let total = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                cartItems.innerHTML += `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.name}">
+                        <div>
+                            <h4>${item.name}</h4>
+                            <p>$${item.price}</p>
+                            <div class="quantity-control">
+                                <button onclick="updateQuantity(${item.index}, ${item.quantity - 1})">-</button>
+                                <span>${item.quantity}</span>
+                                <button onclick="updateQuantity(${item.index}, ${item.quantity + 1})">+</button>
+                            </div>
+                        </div>
+                        <button onclick="removeFromCart(${item.index})">Remove</button>
+                    </div>
+                `;
+            });
+            
+            cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartTotal.textContent = total.toFixed(2);
+        }
+
+        function updateQuantity(productIndex, newQuantity) {
+            if (newQuantity < 1) {
+                removeFromCart(productIndex);
+                return;
+            }
+            
+            const item = cart.find(item => item.index === productIndex);
+            if (item) {
+                item.quantity = newQuantity;
+                saveCart();
+                updateCart();
+            }
+        }
+
+        function removeFromCart(productIndex) {
+            cart = cart.filter(item => item.index !== productIndex);
+            saveCart();
+            updateCart();
+        }
+
+        function toggleCart() {
+            document.querySelector('.cart-sidebar').classList.toggle('active');
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            alert(`Thank you for your order! Total: $${total.toFixed(2)}\n\nThis is a demo store. In a real store, you would be redirected to a payment page.`);
+            
+            // Clear the cart after checkout
+            cart = [];
+            saveCart();
+            updateCart();
+            toggleCart();
+        }
+
+        // Initialize the page
+        loadProducts();
+        updateCart();
+    </script>
 </body>
 </html>
