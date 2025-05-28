@@ -7,44 +7,148 @@
     <script async defer crossorigin="anonymous" 
             src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0">
     </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-color: #1f2937;
+            --light-bg: #f3f4f6;
+            --white: #ffffff;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            text-align: center;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+
         header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 1rem 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        main {
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .profile-card {
+            background: var(--white);
+            border-radius: 1rem;
             padding: 2rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .social-button i {
+            font-size: 1.2rem;
+        }
+
         footer {
-            background-color: #f1f1f1;
-            padding: 1rem 0;
-            margin-top: 2rem;
+            background-color: var(--white);
+            padding: 2rem 0;
+            margin-top: 4rem;
+            text-align: center;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .profile-card {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            .profile-header h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to My Profile</h1>
+        <div class="container">
+            <h1>Welcome to My Profile</h1>
+        </div>
     </header>
-    <main>
-        <section>
-            <h2>Follow Me on Facebook</h2>
-            <p>
-                <a href="https://www.facebook.com/pawan.shrestha.228123/" target="_blank">
-                    Visit My Facebook Profile
+    <main class="container">
+        <div class="profile-card">
+            <div class="profile-header">
+                <h1>Pawan Shrestha</h1>
+                <p>Web Developer & Designer</p>
+            </div>
+            <div class="social-links">
+                <a href="https://www.facebook.com/pawan.shrestha.228123/" target="_blank" class="social-button">
+                    <i class="fab fa-facebook-f"></i>
+                    Follow on Facebook
                 </a>
-            </p>
-        </section>
+            </div>
+        </div>
     </main>
     <footer>
-        <p>&copy; DOnt Worry Be Happy</p>
+        <div class="container">
+            <p class="footer-content">&copy; 2024 Don't Worry Be Happy. All rights reserved.</p>
+        </div>
     </footer>
 </body>
 </html>
