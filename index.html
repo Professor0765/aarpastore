@@ -123,6 +123,48 @@
                 font-size: 2rem;
             }
         }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
+        }
+
+        .whatsapp-float i {
+            font-size: 35px;
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+            
+            .whatsapp-float i {
+                font-size: 30px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -150,5 +192,8 @@
             <p class="footer-content">&copy; 2024 Don't Worry Be Happy. All rights reserved.</p>
         </div>
     </footer>
+    <a href="https://wa.me/9779810036277" class="whatsapp-float" target="_blank" title="Message me on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 </body>
 </html>
