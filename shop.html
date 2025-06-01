@@ -5,18 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aarpa Store</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
+      background-color: #f8f8f8; /* Subtle background color */
     }
 
     .site-header {
       background-color: #1a1a1a; /* Darker black */
       color: #fff;
       padding: 15px 0;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* More prominent shadow */
     }
 
     .header-container {
@@ -25,66 +26,79 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 20px; /* Add some horizontal padding */
+      padding: 0 20px;
     }
 
     .site-logo h1 {
-      font-size: 2.5em; /* Slightly larger logo */
+      font-size: 2.8em; /* Slightly larger logo font size */
       margin: 0;
-      font-weight: bold; /* Make logo bold */
-      line-height: 1.1; /* Adjust line height */
+      font-weight: 700; /* Use a bolder weight for the logo */
+      line-height: 1.1;
+      text-transform: uppercase; /* Uppercase for a stronger look */
     }
 
     .search-container {
       display: flex;
       align-items: center;
-      border: 1px solid #555; /* Subtle border */
-      border-radius: 20px; /* Rounded corners */
-      overflow: hidden; /* Hide overflow from rounded corners */
+      border: 1px solid #555;
+      border-radius: 25px; /* More rounded corners */
+      overflow: hidden;
+      background-color: #fff; /* White background for search bar */
+      width: 300px; /* Set a width for the search container */
     }
 
     .search-container input[type="text"] {
-      padding: 8px 15px; /* More padding */
+      padding: 10px 15px; /* More padding */
       border: none;
-      outline: none; /* Remove outline on focus */
-      flex-grow: 1; /* Allow input to grow */
+      outline: none;
+      flex-grow: 1;
       font-size: 1em;
+      font-family: 'Poppins', sans-serif; /* Ensure Poppins is used */
     }
 
     .search-container button {
-      padding: 8px 15px; /* Match input padding */
-      background-color: #555; /* Darker button background */
+      padding: 10px 15px; /* Match input padding */
+      background-color: #555;
       border: none;
       color: #fff;
       cursor: pointer;
-      transition: background-color 0.3s ease; /* Smooth transition */
+      transition: background-color 0.3s ease;
+      font-size: 1em; /* Adjust button icon size */
     }
 
     .search-container button:hover {
-      background-color: #777; /* Darker hover effect */
+      background-color: #777;
     }
 
     .contact-info {
       text-align: right;
-      font-size: 0.9em; /* Slightly smaller font */
+      font-size: 0.95em; /* Slightly larger font */
+      font-weight: 500; /* Medium font weight */
     }
 
     .contact-info p {
-      margin: 2px 0; /* Adjust spacing */
+      margin: 2px 0;
     }
 
     .user-icons span {
-      margin-left: 15px; /* More space between icons */
-      font-size: 1.3em; /* Slightly smaller icons */
+      margin-left: 20px; /* More space between icons */
+      font-size: 1.4em; /* Slightly larger icons */
       cursor: pointer;
+      color: #fff; /* Ensure icon color is white */
+      transition: color 0.3s ease; /* Smooth transition for color */
+    }
+
+    .user-icons span:hover {
+        color: #007bff; /* Highlight color on hover */
     }
 
     .site-nav {
       max-width: 1200px;
-      margin: 15px auto 0; /* More space above nav */
-      background-color: #fff; /* White background */
+      margin: 20px auto 0; /* More space above nav */
+      background-color: #fff;
       padding: 10px 0;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+      border-radius: 8px; /* Rounded corners for nav */
     }
 
     .site-nav ul {
@@ -103,53 +117,55 @@
     .site-nav a {
       text-decoration: none;
       color: #333;
-      font-weight: bold;
+      font-weight: 600; /* Semi-bold font weight */
       transition: color 0.3s ease;
+      padding: 5px 0; /* Add some padding for larger click area */
     }
 
     .site-nav a:hover {
       color: #007bff;
+      border-bottom: 2px solid #007bff; /* Add an underline effect on hover */
     }
   </style>
 </head>
 <body>
-  <header style="background-color: #000; color: #fff; padding: 10px 0;">
-    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
-      <div class="logo">
-        <h1 style="font-size: 2em; margin: 0;">THE<br>Aarpa<br>STORE</h1>
+  <header class="site-header">
+    <div class="header-container">
+      <div class="site-logo">
+        <h1>THE<br>Aarpa<br>STORE</h1>
       </div>
-      <div class="search-bar" style="display: flex; align-items: center;">
-        <input type="text" placeholder="Search here..." style="padding: 5px; border: none; margin-right: 5px;">
-        <button style="padding: 5px 10px; background-color: #fff; border: none; cursor: pointer;">Q</button>
+      <div class="search-container">
+        <input type="text" placeholder="Search here...">
+        <button><i class="fas fa-search"></i></button>
       </div>
-      <div class="contact-info" style="text-align: right;">
-        <p style="margin: 0;">CALL US NOW</p>
-        <p style="margin: 0;">9810036277 / 9802344529</p>
+      <div class="contact-info">
+        <p>CALL US NOW</p>
+        <p>9810036277 / 9802344529</p>
       </div>
-      <div class="user-icons" style="font-size: 1.5em;">
-        <span>👤</span>
-        <span>❤️</span>
-        <span>$</span>
+      <div class="user-icons">
+        <span><i class="fas fa-user"></i></span>
+        <span><i class="fas fa-heart"></i></span>
+        <span><i class="fas fa-shopping-cart"></i></span>
       </div>
     </div>
-    <nav style="max-width: 1200px; margin: 10px auto 0; background-color: #fff; padding: 5px 0; color: #000;">
-      <ul style="list-style: none; padding: 0; margin: 0; display: flex; justify-content: center;">
-        <li style="margin: 0 10px;"><a href="#" style="text-decoration: none; color: #000;">HOME</a></li>
-        <li style="margin: 0 10px;"><a href="#" style="text-decoration: none; color: #000;">APPLE</a></li>
-        <li style="margin: 0 10px;"><a href="#" style="text-decoration: none; color: #000;">ANDROID</a></li>
-        <li style="margin: 0 10px;"><a href="#" style="text-decoration: none; color: #000;">JBL</a></li>
-        <li style="margin: 0 10px;"><a href="#" style="text-decoration: none; color: #000;">ANANK</a></li>
-        <li style="margin: 0 10px;"><a href="#" style="text-decoration: none; color: #000;">BENKS</a></li>
-        <li style="margin: 0 10px;"><a href="#" style="text-decoration: none; color: #000;">JOYROOM</a></li>
-        <li style="margin: 0 10px;"><a href="#" style="text-decoration: none; color: #000;">COTECI</a></li>
-        <li style="margin: 0 10px;"><a href="#" style="text-decoration: none; color: #000;">RECCI</a></li>
-        <li style="margin: 0 10px;"><a href="#" style="text-decoration: none; color: #000;">CCTV CAMERA</a></li>
-        <li style="margin: 0 10px;"><a href="#" style="text-decoration: none; color: #000;">LAPTOP</a></li>
-        <li style="margin: 0 10px;"><a href="#" style="text-decoration: none; color: #000;">TABLET</a></li>
-        <li style="margin: 0 10px;"><a href="#" style="text-decoration: none; color: #000;">GIMMICK CASE</a></li>
-        <li style="margin: 0 10px;"><a href="#" style="text-decoration: none; color: #000;">ACCESSORIES</a></li>
-        <li style="margin: 0 10px;"><a href="#" style="text-decoration: none; color: #000;">KEYPAD PHONE</a></li>
-         <li style="margin: 0 10px;"><a href="#" style="text-decoration: none; color: #000;">🔍</a></li>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">APPLE</a></li>
+        <li><a href="#">ANDROID</a></li>
+        <li><a href="#">JBL</a></li>
+        <li><a href="#">ANANK</a></li>
+        <li><a href="#">BENKS</a></li>
+        <li><a href="#">JOYROOM</a></li>
+        <li><a href="#">COTECI</a></li>
+        <li><a href="#">RECCI</a></li>
+        <li><a href="#">CCTV CAMERA</a></li>
+        <li><a href="#">LAPTOP</a></li>
+        <li><a href="#">TABLET</a></li>
+        <li><a href="#">GIMMICK CASE</a></li>
+        <li><a href="#">ACCESSORIES</a></li>
+        <li><a href="#">KEYPAD PHONE</a></li>
+        <li><a href="#"><i class="fas fa-search"></i></a></li>
       </ul>
     </nav>
   </header>
