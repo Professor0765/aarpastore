@@ -1,146 +1,156 @@
-<style>
-  body {
-    margin: 0;
-    font-family: sans-serif;
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aarpa Store</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
 
-  .site-header {
-    background-color: #1a1a1a; /* Darker black */
-    color: #fff;
-    padding: 15px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  }
+    .site-header {
+      background-color: #1a1a1a; /* Darker black */
+      color: #fff;
+      padding: 15px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
 
-  .header-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px; /* Add some horizontal padding */
-  }
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px; /* Add some horizontal padding */
+    }
 
-  .site-logo h1 {
-    font-size: 2.5em; /* Slightly larger logo */
-    margin: 0;
-    font-weight: bold; /* Make logo bold */
-    line-height: 1.1; /* Adjust line height */
-  }
+    .site-logo h1 {
+      font-size: 2.5em; /* Slightly larger logo */
+      margin: 0;
+      font-weight: bold; /* Make logo bold */
+      line-height: 1.1; /* Adjust line height */
+    }
 
-  .search-container {
-    display: flex;
-    align-items: center;
-    border: 1px solid #555; /* Subtle border */
-    border-radius: 20px; /* Rounded corners */
-    overflow: hidden; /* Hide overflow from rounded corners */
-  }
+    .search-container {
+      display: flex;
+      align-items: center;
+      border: 1px solid #555; /* Subtle border */
+      border-radius: 20px; /* Rounded corners */
+      overflow: hidden; /* Hide overflow from rounded corners */
+    }
 
-  .search-container input[type="text"] {
-    padding: 8px 15px; /* More padding */
-    border: none;
-    outline: none; /* Remove outline on focus */
-    flex-grow: 1; /* Allow input to grow */
-    font-size: 1em;
-  }
+    .search-container input[type="text"] {
+      padding: 8px 15px; /* More padding */
+      border: none;
+      outline: none; /* Remove outline on focus */
+      flex-grow: 1; /* Allow input to grow */
+      font-size: 1em;
+    }
 
-  .search-container button {
-    padding: 8px 15px; /* Match input padding */
-    background-color: #555; /* Darker button background */
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Smooth transition */
-  }
+    .search-container button {
+      padding: 8px 15px; /* Match input padding */
+      background-color: #555; /* Darker button background */
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease; /* Smooth transition */
+    }
 
-  .search-container button:hover {
-    background-color: #777; /* Darker hover effect */
-  }
+    .search-container button:hover {
+      background-color: #777; /* Darker hover effect */
+    }
 
-  .contact-info {
-    text-align: right;
-    font-size: 0.9em; /* Slightly smaller font */
-  }
+    .contact-info {
+      text-align: right;
+      font-size: 0.9em; /* Slightly smaller font */
+    }
 
-  .contact-info p {
-    margin: 2px 0; /* Adjust spacing */
-  }
+    .contact-info p {
+      margin: 2px 0; /* Adjust spacing */
+    }
 
-  .user-icons span {
-    margin-left: 15px; /* More space between icons */
-    font-size: 1.3em; /* Slightly smaller icons */
-    cursor: pointer;
-  }
+    .user-icons span {
+      margin-left: 15px; /* More space between icons */
+      font-size: 1.3em; /* Slightly smaller icons */
+      cursor: pointer;
+    }
 
-  .site-nav {
-    max-width: 1200px;
-    margin: 15px auto 0; /* More space above nav */
-    background-color: #fff; /* White background */
-    padding: 10px 0; /* More padding */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  }
+    .site-nav {
+      max-width: 1200px;
+      margin: 15px auto 0; /* More space above nav */
+      background-color: #fff; /* White background */
+      padding: 10px 0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
 
-  .site-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
-  }
+    .site-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-  .site-nav li {
-    margin: 0 15px; /* More space between nav items */
-  }
+    .site-nav li {
+      margin: 0 15px;
+    }
 
-  .site-nav a {
-    text-decoration: none;
-    color: #333; /* Darker link color */
-    font-weight: bold; /* Bold nav links */
-    transition: color 0.3s ease; /* Smooth transition */
-  }
+    .site-nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
 
-  .site-nav a:hover {
-    color: #007bff; /* Highlight color on hover */
-  }
-</style>
-
-<header class="site-header">
-  <div class="header-container">
-    <div class="site-logo">
-      <h1>THE<br>Aarpa<br>STORE</h1>
+    .site-nav a:hover {
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-container">
+      <div class="site-logo">
+        <h1>THE<br>Aarpa<br>STORE</h1>
+      </div>
+      <div class="search-container">
+        <input type="text" placeholder="Search here...">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+      <div class="contact-info">
+        <p>CALL US NOW</p>
+        <p>9810036277 / 9802344529</p>
+      </div>
+      <div class="user-icons">
+        <span><i class="fas fa-user"></i></span>
+        <span><i class="fas fa-heart"></i></span>
+        <span><i class="fas fa-shopping-cart"></i></span>
+      </div>
     </div>
-    <div class="search-container">
-      <input type="text" placeholder="Search here...">
-      <button>Q</button>
-    </div>
-    <div class="contact-info">
-      <p>CALL US NOW</p>
-      <p>9810036277 / 9802344529</p>
-    </div>
-    <div class="user-icons">
-      <span>👤</span>
-      <span>❤️</span>
-      <span>$</span>
-    </div>
-  </div>
-  <nav class="site-nav">
-    <ul>
-      <li><a href="#">HOME</a></li>
-      <li><a href="#">APPLE</a></li>
-      <li><a href="#">ANDROID</a></li>
-      <li><a href="#">JBL</a></li>
-      <li><a href="#">ANANK</a></li>
-      <li><a href="#">BENKS</a></li>
-      <li><a href="#">JOYROOM</a></li>
-      <li><a href="#">COTECI</a></li>
-      <li><a href="#">RECCI</a></li>
-      <li><a href="#">CCTV CAMERA</a></li>
-      <li><a href="#">LAPTOP</a></li>
-      <li><a href="#">TABLET</a></li>
-      <li><a href="#">GIMMICK CASE</a></li>
-      <li><a href="#">ACCESSORIES</a></li>
-      <li><a href="#">KEYPAD PHONE</a></li>
-      <li><a href="#">🔍</a></li>
-    </ul>
-  </nav>
-</header>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">APPLE</a></li>
+        <li><a href="#">ANDROID</a></li>
+        <li><a href="#">JBL</a></li>
+        <li><a href="#">ANANK</a></li>
+        <li><a href="#">BENKS</a></li>
+        <li><a href="#">JOYROOM</a></li>
+        <li><a href="#">COTECI</a></li>
+        <li><a href="#">RECCI</a></li>
+        <li><a href="#">CCTV CAMERA</a></li>
+        <li><a href="#">LAPTOP</a></li>
+        <li><a href="#">TABLET</a></li>
+        <li><a href="#">GIMMICK CASE</a></li>
+        <li><a href="#">ACCESSORIES</a></li>
+        <li><a href="#">KEYPAD PHONE</a></li>
+        <li><a href="#"><i class="fas fa-search"></i></a></li>
+      </ul>
+    </nav>
+  </header>
+</body>
+</html>
