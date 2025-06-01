@@ -149,6 +149,28 @@
             font-size: 35px;
         }
 
+        .shop-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background-color: #10B981; /* Emerald color */
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .shop-button:hover {
+            background-color: #059669;
+            transform: translateY(-2px);
+        }
+
+        .shop-button i {
+            font-size: 1.2rem;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 0 1rem;
@@ -200,6 +222,10 @@
                     Follow on Facebook
                 </a>
             </div>
+            <a href="shop.html" class="shop-button">
+                <i class="fas fa-shopping-cart"></i>
+                Shop Now
+            </a>
         </div>
     </main>
     <footer>
