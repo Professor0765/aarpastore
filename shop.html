@@ -30,10 +30,12 @@
         }
 
         header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
+            background: var(--white);
             padding: 1rem 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .container {
@@ -48,14 +50,20 @@
             align-items: center;
         }
 
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
         .nav-bar a {
-            color: var(--white);
+            color: var(--text-color);
             text-decoration: none;
             font-weight: 500;
+            transition: color 0.3s ease;
         }
 
         .nav-bar a:hover {
-            text-decoration: underline;
+            color: var(--primary-color);
         }
 
         .cart-icon {
@@ -73,11 +81,88 @@
             font-size: 0.8rem;
         }
 
-        .products-grid {
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .categories-section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--text-color);
+        }
+
+        .categories-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            padding: 2rem 0;
+        }
+
+        .category-card {
+            position: relative;
+            height: 200px;
+            border-radius: 1rem;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .category-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .products-section {
+            padding: 4rem 0;
+            background-color: var(--white);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
         }
 
         .product-card {
@@ -94,7 +179,7 @@
 
         .product-image {
             width: 100%;
-            height: 200px;
+            height: 300px;
             object-fit: cover;
         }
 
@@ -153,6 +238,14 @@
                 padding: 0 1rem;
             }
 
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
             .products-grid {
                 gap: 1rem;
             }
@@ -167,7 +260,11 @@
     <header>
         <div class="container">
             <nav class="nav-bar">
-                <a href="index.html">Home</a>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="#categories">Categories</a>
+                    <a href="#products">Products</a>
+                </div>
                 <a href="#" class="cart-icon">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-count">0</span>
@@ -176,61 +273,97 @@
         </div>
     </header>
 
-    <main class="container">
-        <div class="products-grid">
-            <!-- Product Card 1 -->
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300x200" alt="Product 1" class="product-image">
-                <div class="product-info">
-                    <h3 class="product-title">Product Name 1</h3>
-                    <p class="product-price">$99.99</p>
-                    <button class="add-to-cart">
-                        <i class="fas fa-shopping-cart"></i>
-                        Add to Cart
-                    </button>
-                </div>
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Welcome to Our Store</h1>
+                <p>Discover amazing products at great prices</p>
             </div>
+        </div>
+    </section>
 
-            <!-- Product Card 2 -->
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300x200" alt="Product 2" class="product-image">
-                <div class="product-info">
-                    <h3 class="product-title">Product Name 2</h3>
-                    <p class="product-price">$149.99</p>
-                    <button class="add-to-cart">
-                        <i class="fas fa-shopping-cart"></i>
-                        Add to Cart
-                    </button>
-                </div>
+    <section class="categories-section" id="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Shop by Category</h2>
             </div>
-
-            <!-- Product Card 3 -->
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300x200" alt="Product 3" class="product-image">
-                <div class="product-info">
-                    <h3 class="product-title">Product Name 3</h3>
-                    <p class="product-price">$199.99</p>
-                    <button class="add-to-cart">
-                        <i class="fas fa-shopping-cart"></i>
-                        Add to Cart
-                    </button>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Electronics">
+                    <div class="category-overlay">Electronics</div>
                 </div>
-            </div>
-
-            <!-- Product Card 4 -->
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300x200" alt="Product 4" class="product-image">
-                <div class="product-info">
-                    <h3 class="product-title">Product Name 4</h3>
-                    <p class="product-price">$79.99</p>
-                    <button class="add-to-cart">
-                        <i class="fas fa-shopping-cart"></i>
-                        Add to Cart
-                    </button>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Fashion">
+                    <div class="category-overlay">Fashion</div>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Home & Living">
+                    <div class="category-overlay">Home & Living</div>
                 </div>
             </div>
         </div>
-    </main>
+    </section>
+
+    <section class="products-section" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Products</h2>
+            </div>
+            <div class="products-grid">
+                <!-- Product Card 1 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Wireless Headphones" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Premium Wireless Headphones</h3>
+                        <p class="product-price">$199.99</p>
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Smart Watch" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Smart Watch Series 5</h3>
+                        <p class="product-price">$299.99</p>
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Running Shoes" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Professional Running Shoes</h3>
+                        <p class="product-price">$129.99</p>
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Camera" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Professional Camera</h3>
+                        <p class="product-price">$799.99</p>
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <div class="container">
