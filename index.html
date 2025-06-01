@@ -69,30 +69,47 @@
             color: var(--primary-color);
         }
 
-        .social-links {
+        .button-container {
             display: flex;
             justify-content: center;
             gap: 1rem;
             margin-top: 1.5rem;
+            flex-wrap: wrap;
         }
 
-        .social-button {
-            display: inline-flex;
+        .social-button,
+        .shop-button {
+            display: flex;
             align-items: center;
+            justify-content: center;
             gap: 0.5rem;
             padding: 0.75rem 1.5rem;
-            background-color: var(--primary-color);
             color: var(--white);
             text-decoration: none;
             border-radius: 0.5rem;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            width: 220px;
+        }
+
+        .social-button {
+            background-color: var(--primary-color);
         }
 
         .social-button:hover {
             background-color: var(--secondary-color);
         }
 
-        .social-button i {
+        .shop-button {
+            background-color: #10B981;
+        }
+
+        .shop-button:hover {
+            background-color: #059669;
+            transform: translateY(-2px);
+        }
+
+        .social-button i,
+        .shop-button i {
             font-size: 1.2rem;
         }
 
@@ -149,28 +166,6 @@
             font-size: 35px;
         }
 
-        .shop-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            background-color: #10B981; /* Emerald color */
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 0.5rem;
-            transition: all 0.3s ease;
-            margin-top: 1rem;
-        }
-
-        .shop-button:hover {
-            background-color: #059669;
-            transform: translateY(-2px);
-        }
-
-        .shop-button i {
-            font-size: 1.2rem;
-        }
-
         @media (max-width: 768px) {
             .container {
                 padding: 0 1rem;
@@ -188,6 +183,17 @@
             .profile-card img {
                 max-width: 150px;
                 margin-bottom: 1rem;
+            }
+
+            .button-container {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .social-button,
+            .shop-button {
+                width: 100%;
+                max-width: none;
             }
 
             .whatsapp-float {
@@ -216,7 +222,7 @@
                 <h1>Pawan Shrestha</h1>
                 <p>Web Developer & Designer</p>
             </div>
-            <div class="button-container" style="display: flex; justify-content: center; gap: 1rem; margin-top: 1.5rem;">
+            <div class="button-container">
                 <a href="https://www.facebook.com/pawan.shrestha.228123/" target="_blank" class="social-button">
                     <i class="fab fa-facebook-f"></i>
                     Follow on Facebook
