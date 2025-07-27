@@ -168,36 +168,80 @@
 
         .slide-in-text {
             display: inline-block;
-            animation: slideIn 1.2s cubic-bezier(0.23, 1, 0.32, 1) both;
-            background: linear-gradient(90deg, #2563eb, #1e40af, #10B981, #2563eb);
-            background-size: 200% auto;
-            color: #fff;
-            padding: 0.2em 0.8em;
-            border-radius: 0.5em;
-            box-shadow: 0 2px 12px rgba(37,99,235,0.15);
             font-weight: 600;
             letter-spacing: 1px;
             position: relative;
             overflow: hidden;
+            font-size: 2.5rem;
+            border-radius: 0.5em;
+            box-shadow: 0 2px 12px rgba(37,99,235,0.15);
+            padding: 0.2em 0.8em;
         }
-        @keyframes slideIn {
+        .shimmer-text {
+            background: linear-gradient(90deg, #2563eb, #1e40af, #10B981, #2563eb);
+            background-size: 200% auto;
+            color: #fff;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 2.5s linear infinite;
+            display: inline-block;
+        }
+        .shimmer-text span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(40px) scale(0.8) skewX(-10deg);
+            animation: letterIn 0.7s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
+        .shimmer-text span:nth-child(1) { animation-delay: 0.05s; }
+        .shimmer-text span:nth-child(2) { animation-delay: 0.10s; }
+        .shimmer-text span:nth-child(3) { animation-delay: 0.15s; }
+        .shimmer-text span:nth-child(4) { animation-delay: 0.20s; }
+        .shimmer-text span:nth-child(5) { animation-delay: 0.25s; }
+        .shimmer-text span:nth-child(6) { animation-delay: 0.30s; }
+        .shimmer-text span:nth-child(7) { animation-delay: 0.35s; }
+        .shimmer-text span:nth-child(8) { animation-delay: 0.40s; }
+        .shimmer-text span:nth-child(9) { animation-delay: 0.45s; }
+        .shimmer-text span:nth-child(10) { animation-delay: 0.50s; }
+        .shimmer-text span:nth-child(11) { animation-delay: 0.55s; }
+        .shimmer-text span:nth-child(12) { animation-delay: 0.60s; }
+        .shimmer-text span:nth-child(13) { animation-delay: 0.65s; }
+        .shimmer-text span:nth-child(14) { animation-delay: 0.70s; }
+        .shimmer-text span:nth-child(15) { animation-delay: 0.75s; }
+        .shimmer-text span:nth-child(16) { animation-delay: 0.80s; }
+        .shimmer-text span:nth-child(17) { animation-delay: 0.85s; }
+        .shimmer-text span:nth-child(18) { animation-delay: 0.90s; }
+        .shimmer-text span:nth-child(19) { animation-delay: 0.95s; }
+        .shimmer-text span:nth-child(20) { animation-delay: 1.00s; }
+        .shimmer-text span:nth-child(21) { animation-delay: 1.05s; }
+        .shimmer-text span:nth-child(22) { animation-delay: 1.10s; }
+        .shimmer-text span:nth-child(23) { animation-delay: 1.15s; }
+        .shimmer-text span:nth-child(24) { animation-delay: 1.20s; }
+        .shimmer-text span:nth-child(25) { animation-delay: 1.25s; }
+
+        @keyframes shimmer {
             0% {
-                transform: translateX(-100vw) scale(0.8) skewX(-10deg);
-                opacity: 0;
-                filter: blur(8px);
-            }
-            60% {
-                transform: translateX(20px) scale(1.05) skewX(2deg);
-                opacity: 1;
-                filter: blur(0);
-            }
-            80% {
-                transform: translateX(-5px) scale(0.98) skewX(-1deg);
+                background-position: 0% 50%;
             }
             100% {
-                transform: translateX(0) scale(1) skewX(0);
+                background-position: 200% 50%;
+            }
+        }
+        @keyframes letterIn {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(0.8) skewX(-10deg);
+            }
+            60% {
                 opacity: 1;
-                filter: blur(0);
+                transform: translateY(-10px) scale(1.05) skewX(2deg);
+            }
+            80% {
+                transform: translateY(2px) scale(0.98) skewX(-1deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1) skewX(0);
             }
         }
 
@@ -247,7 +291,11 @@
 <body>
     <header>
         <div class="container">
-            <h1><span class="slide-in-text">For any query contact me</span></h1>
+            <h1 class="slide-in-text">
+                <span class="shimmer-text">
+                    <span>s</span><span>F</span><span>o</span><span>r</span><span> </span><span>a</span><span>n</span><span>y</span><span> </span><span>q</span><span>u</span><span>e</span><span>r</span><span>y</span><span> </span><span>c</span><span>o</span><span>n</span><span>t</span><span>a</span><span>c</span><span>t</span><span> </span><span>m</span><span>e</span>
+                </span>
+            </h1>
         </div>
     </header>
     <main class="container">
