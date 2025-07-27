@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AARPA Store Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1;
+        }
+        .admin-header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+        }
+        .admin-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .product-form {
+            display: grid;
+            gap: 1rem;
+            max-width: 600px;
+        }
+        .form-group {
+            display: grid;
+            gap: 0.5rem;
+        }
+        input, textarea {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .product-list {
+            display: grid;
+            gap: 1rem;
+        }
+        .product-item {
+            display: grid;
+            grid-template-columns: 100px 1fr auto;
+            gap: 1rem;
+            align-items: center;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .product-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        .delete-btn {
+            background-color: #ff4444;
+        }
+        .delete-btn:hover {
+            background-color: #cc0000;
+        }
+        .edit-btn {
+            background-color: #2196F3;
+        }
+        .edit-btn:hover {
+            background-color: #1976D2;
+        }
+        .button-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .image-preview {
+            width: 200px;
+            height: 200px;
+            border: 2px dashed #ddd;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        .image-preview img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+        .file-input-wrapper input[type=file] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+        }
+        .file-input-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-block;
+        }
+        .file-input-button:hover {
+            background-color: #45a049;
+        }
+        .hidden {
+            display: none;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .logout-btn {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #ff4444;
+        }
+        .logout-btn:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <div id="loginSection" class="login-container">
+        <h2>Admin Login</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <p class="error-message" id="loginError"></p>
+    </div>
+
+    <div id="adminSection" class="hidden">
+        <div class="admin-header">
+            <h1>AARPA Store Admin Dashboard</h1>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+        <div class="admin-container">
+            <section class="admin-section">
+                <h2>Manage Products</h2>
+                <form class="product-form" id="productForm">
+                    <div class="form-group">
+                        <label for="productName">Product Name</label>
+                        <input type="text" id="productName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productPrice">Price</label>
+                        <input type="number" id="productPrice" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productImage">Product Image</label>
+                        <div class="file-input-wrapper">
+                            <button type="button" class="file-input-button">Choose Image</button>
+                            <input type="file" id="productImage" accept="image/jpeg" required>
+                        </div>
+                        <div class="image-preview" id="imagePreview">
+                            <span>No image selected</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="productDescription">Description</label>
+                        <textarea id="productDescription" rows="4" required></textarea>
+                    </div>
+                    <button type="submit">Add Product</button>
+                </form>
+                <div class="product-list" id="productList">
+                    <!-- Products will be listed here -->
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // Check if user is logged in
+        function checkAuth() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            if (isLoggedIn) {
+                showAdminPanel();
+            } else {
+                showLoginForm();
+            }
+        }
+
+        // Show admin panel
+        function showAdminPanel() {
+            document.getElementById('loginSection').classList.add('hidden');
+            document.getElementById('adminSection').classList.remove('hidden');
+            loadProducts();
+        }
+
+        // Show login form
+        function showLoginForm() {
+            document.getElementById('loginSection').classList.remove('hidden');
+            document.getElementById('adminSection').classList.add('hidden');
+        }
+
+        // Handle login
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'pawan' && password === 'pawan123') {
+                localStorage.setItem('isLoggedIn', 'true');
+                showAdminPanel();
+            } else {
+                document.getElementById('loginError').textContent = 'Invalid username or password';
+            }
+        });
+
+        // Handle logout
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            showLoginForm();
+        }
+
+        // Handle image preview
+        document.getElementById('productImage').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('imagePreview');
+                    preview.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Load products from localStorage
+        function loadProducts() {
+            const products = JSON.parse(localStorage.getItem('products')) || [];
+            const productList = document.getElementById('productList');
+            
+            productList.innerHTML = products.map((product, index) => `
+                <div class="product-item">
+                    <img src="${product.image}" alt="${product.name}">
+                    <div>
+                        <h3>${product.name}</h3>
+                        <p>$${product.price}</p>
+                        <p>${product.description}</p>
+                    </div>
+                    <div class="button-group">
+                        <button class="edit-btn" onclick="editProduct(${index})">Edit</button>
+                        <button class="delete-btn" onclick="deleteProduct(${index})">Delete</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Add new product
+        document.getElementById('productForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const products = JSON.parse(localStorage.getItem('products')) || [];
+            
+            const fileInput = document.getElementById('productImage');
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                alert('Please select an image');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const newProduct = {
+                    name: document.getElementById('productName').value,
+                    price: parseFloat(document.getElementById('productPrice').value),
+                    image: e.target.result,
+                    description: document.getElementById('productDescription').value
+                };
+                
+                products.push(newProduct);
+                localStorage.setItem('products', JSON.stringify(products));
+                
+                document.getElementById('productForm').reset();
+                document.getElementById('imagePreview').innerHTML = '<span>No image selected</span>';
+                loadProducts();
+            };
+            reader.readAsDataURL(file);
+        });
+
+        // Edit product
+        function editProduct(index) {
+            const products = JSON.parse(localStorage.getItem('products')) || [];
+            const product = products[index];
+            
+            document.getElementById('productName').value = product.name;
+            document.getElementById('productPrice').value = product.price;
+            document.getElementById('productDescription').value = product.description;
+            
+            const preview = document.getElementById('imagePreview');
+            preview.innerHTML = `<img src="${product.image}" alt="Preview">`;
+            
+            products.splice(index, 1);
+            localStorage.setItem('products', JSON.stringify(products));
+            loadProducts();
+        }
+
+        // Delete product
+        function deleteProduct(index) {
+            if (confirm('Are you sure you want to delete this product?')) {
+                const products = JSON.parse(localStorage.getItem('products')) || [];
+                products.splice(index, 1);
+                localStorage.setItem('products', JSON.stringify(products));
+                loadProducts();
+            }
+        }
+
+        // Initialize the page
+        checkAuth();
+    </script>
+</body>
+</html> 

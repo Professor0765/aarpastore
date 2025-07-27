@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <script async defer crossorigin="anonymous" 
+            src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0">
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-color: #1f2937;
+            --light-bg: #f3f4f6;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .profile-card {
+            background: var(--white);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social-button,
+        .shop-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            width: 220px;
+        }
+
+        .social-button {
+            background-color: var(--primary-color);
+        }
+
+        .social-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .shop-button {
+            background-color: #10B981;
+        }
+
+        .shop-button:hover {
+            background-color: #059669;
+            transform: translateY(-2px);
+        }
+
+        .social-button i,
+        .shop-button i {
+            font-size: 1.2rem;
+        }
+
+        .profile-card img {
+            display: block;
+            max-width: 200px;
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem auto;
+            border: 5px solid var(--light-bg);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: var(--white);
+            padding: 2rem 0;
+            margin-top: 4rem;
+            text-align: center;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
+        }
+
+        .whatsapp-float i {
+            font-size: 35px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .profile-card {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            .profile-header h1 {
+                font-size: 2rem;
+            }
+
+            .profile-card img {
+                max-width: 150px;
+                margin-bottom: 1rem;
+            }
+
+            .button-container {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .social-button,
+            .shop-button {
+                width: 100%;
+                max-width: none;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+            
+            .whatsapp-float i {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Welcome to My Profile</h1>
+        </div>
+    </header>
+    <main class="container">
+        <div class="profile-card">
+            <img src="img/profile.jpg" alt="Your Profile Image">
+            <div class="profile-header">
+                <h1>Pawan Shrestha</h1>
+                <p>Web Developer & Designer</p>
+            </div>
+            <div class="button-container">
+                <a href="https://www.facebook.com/pawan.shrestha.228123/" target="_blank" class="social-button">
+                    <i class="fab fa-facebook-f"></i>
+                    Follow on Facebook
+                </a>
+                <a href="shop.html" class="shop-button">
+                    <i class="fas fa-shopping-cart"></i>
+                    Shop Now
+                </a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p class="footer-content">&copy; 2024 Don't Worry Be Happy. All rights reserved.</p>
+        </div>
+    </footer>
+    <a href="https://wa.me/9779810036277" class="whatsapp-float" target="_blank" title="Message me on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+</html>
