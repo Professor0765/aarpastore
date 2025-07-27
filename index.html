@@ -166,6 +166,41 @@
             font-size: 35px;
         }
 
+        .slide-in-text {
+            display: inline-block;
+            animation: slideIn 1.2s cubic-bezier(0.23, 1, 0.32, 1) both;
+            background: linear-gradient(90deg, #2563eb, #1e40af, #10B981, #2563eb);
+            background-size: 200% auto;
+            color: #fff;
+            padding: 0.2em 0.8em;
+            border-radius: 0.5em;
+            box-shadow: 0 2px 12px rgba(37,99,235,0.15);
+            font-weight: 600;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100vw) scale(0.8) skewX(-10deg);
+                opacity: 0;
+                filter: blur(8px);
+            }
+            60% {
+                transform: translateX(20px) scale(1.05) skewX(2deg);
+                opacity: 1;
+                filter: blur(0);
+            }
+            80% {
+                transform: translateX(-5px) scale(0.98) skewX(-1deg);
+            }
+            100% {
+                transform: translateX(0) scale(1) skewX(0);
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 0 1rem;
@@ -212,7 +247,7 @@
 <body>
     <header>
         <div class="container">
-            <h1>For any query contact me</h1>
+            <h1><span class="slide-in-text">For any query contact me</span></h1>
         </div>
     </header>
     <main class="container">
