@@ -327,4 +327,13 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 </body>
+<script>
+// Fallback: Ensure header text is visible if animation fails
+setTimeout(function() {
+  document.querySelectorAll('.shimmer-text span').forEach(function(span) {
+    span.style.opacity = '1';
+    span.style.transform = 'none';
+  });
+}, 2000);
+</script>
 </html>
