@@ -2,338 +2,93 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pawan Shrestha</title>
-    <script async defer crossorigin="anonymous" 
-            src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0">
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>E-Commerce App</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/auth.css">
     <style>
+        /* Android-like styles */
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --text-color: #1f2937;
-            --light-bg: #f3f4f6;
-            --white: #ffffff;
+            --safe-area-top: env(safe-area-inset-top);
+            --safe-area-bottom: env(safe-area-inset-bottom);
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--light-bg);
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+            background: #f5f5f5;
+            overscroll-behavior: none;
         }
-
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            padding: 2rem 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        .status-bar {
+            height: var(--safe-area-top, 20px);
+            background: #4CAF50;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .bottom-nav {
+            padding-bottom: var(--safe-area-bottom, 0px);
         }
-
-        .profile-card {
-            background: var(--white);
-            border-radius: 1rem;
-            padding: 2rem;
-            margin: 2rem auto;
-            max-width: 600px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+        .app-container {
+            height: calc(100vh - var(--safe-area-top, 20px));
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
-
-        .profile-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .profile-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .profile-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-        }
-
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .social-button,
-        .shop-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 0.5rem;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            width: 220px;
-        }
-
-        .social-button {
-            background-color: var(--primary-color);
-        }
-
-        .social-button:hover {
-            background-color: var(--secondary-color);
-        }
-
-        .shop-button {
-            background-color: #10B981;
-        }
-
-        .shop-button:hover {
-            background-color: #059669;
-            transform: translateY(-2px);
-        }
-
-        .social-button i,
-        .shop-button i {
-            font-size: 1.2rem;
-        }
-
-        .profile-card img {
-            display: block;
-            max-width: 200px;
-            width: 100%;
-            height: auto;
-            border-radius: 50%;
-            margin: 0 auto 1.5rem auto;
-            border: 5px solid var(--light-bg);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        footer {
-            background-color: var(--white);
-            padding: 2rem 0;
-            margin-top: 4rem;
-            text-align: center;
-            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .footer-content {
-            color: var(--text-color);
-            font-size: 0.9rem;
-        }
-
-        .whatsapp-float {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background-color: #25D366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px rgba(0,0,0,0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            background-color: #128C7E;
-        }
-
-        .whatsapp-float i {
-            font-size: 35px;
-        }
-
-        .slide-in-text {
-            display: inline-block;
-            font-weight: 600;
-            letter-spacing: 1px;
+        /* Material Design-like ripple effect */
+        .ripple {
             position: relative;
             overflow: hidden;
-            font-size: 2.5rem;
-            border-radius: 0.5em;
-            box-shadow: 0 2px 12px rgba(37,99,235,0.15);
-            padding: 0.2em 0.8em;
+            transform: translate3d(0, 0, 0);
         }
-        .shimmer-text {
-            background: linear-gradient(90deg, #2563eb, #1e40af, #10B981, #2563eb);
-            background-size: 200% auto;
-            color: #fff;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: shimmer 2.5s linear infinite;
-            display: inline-block;
+        .ripple:after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            background-image: radial-gradient(circle, #000 10%, transparent 10.01%);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            transform: scale(10, 10);
+            opacity: 0;
+            transition: transform .5s, opacity 1s;
         }
-        .shimmer-text span {
-            display: inline-block;
-            opacity: 1 !important;
-            color: #2563eb !important;
-            transform: none !important;
-            animation: none !important;
+        .ripple:active:after {
+            transform: scale(0, 0);
+            opacity: .2;
+            transition: 0s;
         }
-        .shimmer-text span:nth-child(1) { animation-delay: 0.05s; }
-        .shimmer-text span:nth-child(2) { animation-delay: 0.10s; }
-        .shimmer-text span:nth-child(3) { animation-delay: 0.15s; }
-        .shimmer-text span:nth-child(4) { animation-delay: 0.20s; }
-        .shimmer-text span:nth-child(5) { animation-delay: 0.25s; }
-        .shimmer-text span:nth-child(6) { animation-delay: 0.30s; }
-        .shimmer-text span:nth-child(7) { animation-delay: 0.35s; }
-        .shimmer-text span:nth-child(8) { animation-delay: 0.40s; }
-        .shimmer-text span:nth-child(9) { animation-delay: 0.45s; }
-        .shimmer-text span:nth-child(10) { animation-delay: 0.50s; }
-        .shimmer-text span:nth-child(11) { animation-delay: 0.55s; }
-        .shimmer-text span:nth-child(12) { animation-delay: 0.60s; }
-        .shimmer-text span:nth-child(13) { animation-delay: 0.65s; }
-        .shimmer-text span:nth-child(14) { animation-delay: 0.70s; }
-        .shimmer-text span:nth-child(15) { animation-delay: 0.75s; }
-        .shimmer-text span:nth-child(16) { animation-delay: 0.80s; }
-        .shimmer-text span:nth-child(17) { animation-delay: 0.85s; }
-        .shimmer-text span:nth-child(18) { animation-delay: 0.90s; }
-        .shimmer-text span:nth-child(19) { animation-delay: 0.95s; }
-        .shimmer-text span:nth-child(20) { animation-delay: 1.00s; }
-        .shimmer-text span:nth-child(21) { animation-delay: 1.05s; }
-        .shimmer-text span:nth-child(22) { animation-delay: 1.10s; }
-        .shimmer-text span:nth-child(23) { animation-delay: 1.15s; }
-        .shimmer-text span:nth-child(24) { animation-delay: 1.20s; }
-        .shimmer-text span:nth-child(25) { animation-delay: 1.25s; }
-
-        @keyframes shimmer {
-            0% {
-                background-position: 0% 50%;
-            }
-            100% {
-                background-position: 200% 50%;
-            }
+        /* Smooth scrolling for products */
+        .scroll-smooth {
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
         }
-        @keyframes letterIn {
-            0% {
-                opacity: 0;
-                transform: translateY(40px) scale(0.8) skewX(-10deg);
-            }
-            60% {
-                opacity: 1;
-                transform: translateY(-10px) scale(1.05) skewX(2deg);
-            }
-            80% {
-                transform: translateY(2px) scale(0.98) skewX(-1deg);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1) skewX(0);
-            }
+        /* Product card hover effect */
+        .product-card {
+            transition: transform 0.2s ease;
         }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 1rem;
-            }
-
-            .profile-card {
-                margin: 1rem;
-                padding: 1.5rem;
-            }
-
-            .profile-header h1 {
-                font-size: 2rem;
-            }
-
-            .profile-card img {
-                max-width: 150px;
-                margin-bottom: 1rem;
-            }
-
-            .button-container {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .social-button,
-            .shop-button {
-                width: 100%;
-                max-width: none;
-            }
-
-            .whatsapp-float {
-                width: 50px;
-                height: 50px;
-                bottom: 1.5rem;
-                right: 1.5rem;
-            }
-            
-            .whatsapp-float i {
-                font-size: 30px;
-            }
+        .product-card:active {
+            transform: scale(0.98);
+        }
+        /* Loading animation */
+        .loading {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
         }
     </style>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <h1 class="slide-in-text">
-                <span class="shimmer-text">
-                    <span>F</span><span>o</span><span>r</span><span> </span>
-                    <span>a</span><span>n</span><span>y</span><span> </span>
-                    <span>q</span><span>u</span><span>e</span><span>r</span><span>y</span><span> </span>
-                    <span>c</span><span>o</span><span>n</span><span>t</span><span>a</span><span>c</span><span>t</span><span> </span>
-                    <span>m</span><span>e</span>
-                </span>
-            </h1>
-        </div>
-    </header>
-    <main class="container">
-        <div class="profile-card">
-            <img src="img/profile.jpg" alt="Your Profile Image">
-            <div class="profile-header">
-                <h1>Pawan Shrestha</h1>
-                <p>Senior Technical Officer </p>
-            </div>
-            <div class="button-container">
-                <a href="https://www.facebook.com/pawan.shrestha.228123/" target="_blank" class="social-button">
-                    <i class="fab fa-facebook-f"></i>
-                    Follow on Facebook
-                </a>
-            </div>
-        </div>
-    </main>
-    <footer>
-        <div class="container">
-            <p class="footer-content">&copy; 2024 Don't Worry Be Happy. All rights reserved.</p>
-        </div>
-    </footer>
-    <a href="https://wa.me/9779810036277" class="whatsapp-float" target="_blank" title="Message me on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+<body class="bg-gray-100">
+    <div class="status-bar"></div>
+    <div id="app" class="app-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
 </body>
-<script>
-// Fallback: Ensure header text is visible if animation fails
-setTimeout(function() {
-  document.querySelectorAll('.shimmer-text span').forEach(function(span) {
-    span.style.opacity = '1';
-    span.style.transform = 'none';
-  });
-}, 2000);
-</script>
 </html>
