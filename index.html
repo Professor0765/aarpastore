@@ -3,127 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pawan Shrestha | Technical In-Charge Portfolio</title>
+    <title>Pawan Shrestha | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #2c3e50;
-            --accent: #3498db;
-            --text: #333;
-            --light: #f4f4f4;
+            --dark-bg: #1a2332;
+            --blue-accent: #3498db;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
         }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--text); margin: 0; padding: 0; }
-        header { background: var(--primary); color: white; padding: 3rem 1rem; text-align: center; }
-        .container { max-width: 1000px; margin: auto; padding: 2rem; }
-        
-        /* Profile Image Section */
-        .profile-section { text-align: center; margin-bottom: 2rem; }
-        .profile-img { 
-            width: 200px; height: 200px; border-radius: 50%; 
-            border: 5px solid var(--accent); object-fit: cover;
-            background: #ccc; display: inline-block;
+
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; color: #333; }
+
+        /* Navigation Header */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 50px; background: white; }
+        .logo { font-weight: bold; font-size: 1.5rem; text-transform: uppercase; }
+        .logo span { color: var(--blue-accent); }
+        .nav-contact { display: flex; gap: 20px; align-items: center; }
+        .btn-call { background: var(--blue-accent); color: white; padding: 8px 20px; border-radius: 20px; text-decoration: none; font-weight: bold; }
+
+        /* Hero Section (Matching your photo) */
+        .hero { 
+            background: linear-gradient(to right, var(--dark-bg) 60%, #253347);
+            color: white; padding: 80px 50px; display: flex; align-items: center;
+            justify-content: space-between; position: relative; overflow: hidden;
         }
+        .hero-content { max-width: 50%; }
+        .hero-content h3 { color: var(--blue-accent); font-weight: 400; margin-bottom: 10px; }
+        .hero-content h1 { font-size: 3rem; margin: 0; line-height: 1.1; }
+        .hero-content p { font-size: 1rem; color: #bdc3c7; margin: 20px 0; line-height: 1.6; }
         
-        .nav-links { margin-top: 1rem; }
-        .nav-links a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
-        
-        section { margin-bottom: 3rem; }
-        h2 { border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 5px; }
-        
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
-        .skill-card { background: var(--light); padding: 1rem; border-radius: 8px; border-left: 5px solid var(--accent); }
-        
-        .job { margin-bottom: 1.5rem; }
-        .job-title { font-weight: bold; color: var(--primary); font-size: 1.2rem; }
-        .job-meta { color: #666; font-style: italic; margin-bottom: 0.5rem; }
-        
-        footer { background: var(--primary); color: white; text-align: center; padding: 2rem; margin-top: 2rem; }
-        .social-links a { color: var(--accent); text-decoration: none; margin: 0 10px; }
+        /* Profile Image Container */
+        .profile-container { position: relative; z-index: 1; }
+        .profile-img {
+            width: 350px; height: 350px; border-radius: 50%;
+            border: 8px solid rgba(52, 152, 219, 0.3);
+            object-fit: cover; background: #444;
+        }
+
+        /* Buttons */
+        .btn-group { display: flex; gap: 15px; margin-top: 30px; }
+        .btn-main { background: #1e88e5; color: white; padding: 12px 25px; border-radius: 25px; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+
+        /* Contact Section */
+        .contact-section { text-align: center; padding: 80px 20px; background: var(--light-gray); }
+        .contact-section h2 { font-size: 2.5rem; margin-top: 0; }
+        .contact-grid { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 20px; max-width: 1000px; margin: 40px auto; 
+        }
+        .contact-card { 
+            background: white; padding: 30px; border-radius: 15px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-decoration: none; color: inherit;
+            transition: transform 0.3s;
+        }
+        .contact-card:hover { transform: translateY(-10px); }
+        .contact-card i { font-size: 3rem; margin-bottom: 15px; }
+        .icon-whatsapp { color: #25D366; }
+        .icon-viber { color: #7360f2; }
+        .icon-facebook { color: #1877F2; }
+        .icon-linkedin { color: #0077b5; }
+
+        @media (max-width: 768px) {
+            .hero { flex-direction: column; text-align: center; padding: 40px 20px; }
+            .hero-content { max-width: 100%; margin-bottom: 40px; }
+            .profile-img { width: 250px; height: 250px; }
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="profile-section">
-        <img src="pawan.jpg" alt="Pawan Shrestha" class="profile-img">
+<nav>
+    <div class="logo">PAWAN<span>.SHRESTHA</span></div>
+    <div class="nav-contact">
+        <a href="#" class="btn-call">CALL NOW</a>
     </div>
-    <h1>PAWAN SHRESTHA</h1>
-    <p>Technical In-Charge | Surveillance & Networking Specialist</p>
-    <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-    </div>
-</header>
+</nav>
 
-<div class="container">
-    <section id="about">
-        <h2>Professional Summary</h2>
-        [cite_start]<p>Highly skilled Technical Professional with over 7 years of experience in surveillance systems, network infrastructure, and IT support[cite: 4]. [cite_start]Proven track record in managing end-to-end CCTV projects (Dahua, Hikvision, EZVIZ) and optimizing network performance for ISPs and commercial clients[cite: 5].</p>
-    </section>
-
-    <section id="skills">
-        <h2>Technical Expertise</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3>Surveillance</h3>
-                [cite_start]<p>CCTV Installation, NVR/NAS Setup, Site Surveys (Dahua, EZVIZ, Hikvision)[cite: 8].</p>
-            </div>
-            <div class="skill-card">
-                <h3>Networking</h3>
-                [cite_start]<p>PoE Switches, Router Configuration, Access Point Management, WISP Support[cite: 9].</p>
-            </div>
-            <div class="skill-card">
-                <h3>IT & Hardware</h3>
-                [cite_start]<p>Server-related tasks, Mobile Phone Repair, Windows/Linux support[cite: 10].</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience">
-        <h2>Professional Experience</h2>
+<section class="hero">
+    <div class="hero-content">
+        <h3>Technical In-Charge @ Tech World Distribution </h3>
+        <h1>CCTV In-Charge<br>Network Expert</h1>
+        <p>Leading technical selection process services for over 7 years.  Specialized in high-end CCTV installation, NVR/NAS setup, and optimizing network performance for ISPs. [cite: 5, 8]</p>
         
-        <div class="job">
-            <div class="job-title">Technical In-Charge | Tech World Distribution Pvt. Ltd.</div>
-            [cite_start]<div class="job-meta">Jan 2022 - Present [cite: 13]</div>
-            <ul>
-                [cite_start]<li>Lead core technical operations across CCTV, networking, and IT systems[cite: 14].</li>
-                [cite_start]<li>Direct site surveys and supervise field installation activities[cite: 15].</li>
-                [cite_start]<li>Manage network devices including PoE switches and access points[cite: 16].</li>
-            </ul>
+        <div class="btn-group">
+            <a href="tel:+9779810036277" class="btn-main">
+                <i class="fas fa-phone"></i> +977-9810036277 [cite: 2]
+            </a>
+            <a href="tel:+9779810036277" class="btn-main" style="background: #0d47a1;">
+                <i class="fas fa-headset"></i> Direct Call
+            </a>
         </div>
-
-        <div class="job">
-            <div class="job-title">Technical Lead | NightVision</div>
-            [cite_start]<div class="job-meta">Jan 2020 - Dec 2021 [cite: 18]</div>
-            <ul>
-                [cite_start]<li>Oversaw surveillance projects and fault diagnosis[cite: 19, 20].</li>
-            </ul>
-        </div>
-
-        <div class="job">
-            <div class="job-title">Field Support Technician | Websurfer Nepal</div>
-            [cite_start]<div class="job-meta">Jan 2019 - Dec 2020 [cite: 22, 23]</div>
-            <ul>
-                [cite_start]<li>Provided on-field technical support for wireless internet and antenna placement[cite: 24].</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="contact">
-        <h2>Contact Me</h2>
-        [cite_start]<p><strong>Location:</strong> Kathmandu, Nepal [cite: 2]</p>
-        [cite_start]<p><strong>Phone / WhatsApp / Viber:</strong> +977-9810036277 [cite: 2]</p>
-        [cite_start]<p><strong>Email:</strong> pawanshrestha2025@gmail.com [cite: 2]</p>
-    </section>
-</div>
-
-<footer>
-    <p>&copy; 2025 Pawan Shrestha</p>
-    <div class="social-links">
-        <a href="https://www.linkedin.com/in/pawan-shrestha-13364b376/">LinkedIn</a> | 
-        <a href="https://www.facebook.com/pawan.shrestha.228123/">Facebook</a>
     </div>
+
+    <div class="profile-container">
+        <img src="pawan-photo.jpg" alt="Pawan Shrestha" class="profile-img">
+    </div>
+</section>
+
+<section class="contact-section">
+    <p style="color: #666; text-transform: uppercase; letter-spacing: 2px;">Professional Text</p>
+    <h2>Get In Touch</h2>
+
+    <div class="contact-grid">
+        <a href="https://wa.me/9779810036277" class="contact-card">
+            <i class="fab fa-whatsapp icon-whatsapp"></i>
+            <h3>WhatsApp</h3>
+            <p>9810036277</p>
+        </a>
+        <a href="viber://chat?number=9779810036277" class="contact-card">
+            <i class="fab fa-viber icon-viber"></i>
+            <h3>Viber</h3>
+            <p>9810036277</p>
+        </a>
+        <a href="https://www.facebook.com/pawan.shrestha.228123/" class="contact-card">
+            <i class="fab fa-facebook icon-facebook"></i>
+            <h3>Facebook</h3>
+            <p>Connect Now</p>
+        </a>
+        <a href="https://www.linkedin.com/in/pawan-shrestha-13364b376/" class="contact-card">
+            <i class="fab fa-linkedin icon-linkedin"></i>
+            <h3>LinkedIn</h3>
+            <p>View Profile</p>
+        </a>
+    </div>
+</section>
+
+<footer style="text-align: center; padding: 40px; color: #888; font-size: 0.9rem;">
+    &copy; 2025 Pawan Shrestha. All Rights Reserved.
 </footer>
 
 </body>
