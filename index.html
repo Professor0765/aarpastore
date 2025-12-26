@@ -1,351 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-	<title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pawan Shrestha | Technical Operations Expert</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+        body { font-family: 'Outfit', sans-serif; scroll-behavior: smooth; }
+        .glass-card { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(59, 130, 246, 0.2); }
+        .gradient-border { border: 2px solid transparent; background: linear-gradient(#0f172a, #0f172a) padding-box, linear-gradient(90deg, #3b82f6, #06b6d4) border-box; }
+    </style>
 </head>
-<body>
-	<div class="header">
-		<nav style="padding: 0;">
-			<div class="logo"><img src="images/Gs_logo.png"></div>
-			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="products.html">Products</a></li>
-				<li><a href="product-details.html">More</a></li>
-				<li><a href="cart.html">Cart</a></li>
-               </ul>
+<body class="bg-[#020617] text-slate-300">
 
-               <div class="menu-nav">
-		<div class="menu-icon">
-		<i class="fa-solid fa-bars"></i>
-	     </div>
-	     <div class="close-icon">
-	     	<i class="fa-solid fa-x"></i>
-	     </div>
-	     </div>
-		</nav>
-		
-		<div class="banner">
-			<div class="banner-desc">
-				<h1>Give Your Personality A Standard!</h1>
-				<h6>Getting to the gym and prioritizing your fitness isn’t easy—we know! But staying on track and working toward your health goals is essential</h6>
-				<button><div class="btn-text">Explore now</div></button>
-			</div>
+    <nav class="fixed w-full z-50 top-0 bg-[#020617]/90 border-b border-slate-800 py-4">
+        <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
+            <div class="text-xl font-bold text-white tracking-widest uppercase">Pawan<span class="text-blue-500">.Shrestha</span></div>
+            <div class="flex items-center space-x-6">
+                <a href="tel:+9779810036277" class="text-slate-400 hover:text-white transition"><i class="fas fa-phone-alt"></i></a>
+                <a href="https://wa.me/9779810036277" class="text-slate-400 hover:text-green-500 transition text-xl"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.linkedin.com/in/pawan-shrestha-13364b376/" target="_blank" class="text-slate-400 hover:text-blue-400 transition text-xl"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </nav>
 
-				<div class="banner-img">
-					<img src="images/image1.png">
-				</div>
-			
-		</div>
-	</div>
-	<div class="container-1">
-		<img src="images/image_2.jpg">
-		<img src="images/image_3.jpg">
-		<img src="images/image_4.jpg">
-	</div>
+    <section class="min-h-screen flex items-center pt-20 relative">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-blue-500 font-bold tracking-[0.3em] uppercase mb-4 text-sm">Specialist in Surveillance & Networking</h2>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6">Pawan Shrestha</h1>
+                <p class="text-xl text-slate-400 mb-8 leading-relaxed">
+                    Former **Technical In-Charge at Tech World Distribution**. Expert in end-to-end CCTV ecosystems, Dahua & Hikvision integration, and professional network infrastructure.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://wa.me/9779810036277" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold transition flex items-center">
+                        <i class="fab fa-whatsapp mr-2"></i> Hire Me
+                    </a>
+                    <a href="pawan-shrestha-cv.pdf" download="Pawan_Shrestha_CV" class="border border-slate-700 text-white px-8 py-4 rounded-xl font-bold hover:bg-slate-800 transition">
+                        Download CV
+                    </a>
+                </div> </div>
+            
+            <div class="relative flex justify-center">
+                <div class="w-80 h-96 rounded-3xl gradient-border overflow-hidden shadow-2xl shadow-blue-500/20">
+                    <img src="pawan.jpg" alt="Pawan Shrestha" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-500">
+                </div>
+                <div class="absolute -bottom-6 -right-6 glass-card p-4 rounded-2xl hidden md:block">
+                    <p class="text-[10px] font-bold text-blue-400 uppercase mb-2">Scan for Bio</p>
+                    <img src="qr-code.png" alt="QR Link" class="w-20 h-20 rounded-lg">
+                </div>
+            </div>
+        </div>
+    </section>
 
-	<div class="featured">
-		<div class="desc">
-		<h1>Featured Products</h1>
-		<div class="stroke"></div>
-	</div>
-	<div class="products">
-		<div class="product-desc">
-		<img src="images/image_5.jpg">
-		<div class="product-details">
-		<h4>Levi's Hoodie</h4>
-         <div class="rating">
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-regular fa-star"></i>
-         </div>
-		<h4>$75.00</h4>
-	</div>
- </div>
+    <section class="py-24 bg-[#070b17]">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+            <div class="glass-card p-10 rounded-3xl group">
+                <i class="fas fa-video text-4xl text-blue-500 mb-6 block group-hover:scale-110 transition"></i>
+                <h3 class="text-2xl font-bold text-white mb-4">CCTV Security</h3>
+                <p class="text-slate-400">Mastery in Dahua/Hikvision NVR/NAS configuration and large-scale site deployment.</p>
+            </div>
+            <div class="glass-card p-10 rounded-3xl group">
+                <i class="fas fa-network-wired text-4xl text-cyan-500 mb-6 block group-hover:scale-110 transition"></i>
+                <h3 class="text-2xl font-bold text-white mb-4">Networking</h3>
+                <p class="text-slate-400">Advanced PoE switching, router optimization, and fiber-to-the-home (FTTH) coordination.</p>
+            </div>
+            <div class="glass-card p-10 rounded-3xl group">
+                <i class="fas fa-microchip text-4xl text-purple-500 mb-6 block group-hover:scale-110 transition"></i>
+                <h3 class="text-2xl font-bold text-white mb-4">Hardware Support</h3>
+                <p class="text-slate-400">Technical diagnostics and maintenance for enterprise-level IT hardware.</p>
+            </div>
+        </div>
+    </section>
 
-      <div class="product-desc">
-		<img src="images/image_6.jpg">
-		<div class="product-details">
-		<h4>Levi's Hoodie</h4>
-         <div class="rating">
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-regular fa-star"></i>
-         </div>
-		<h4>$75.00</h4>
-	</div>
-	    </div>
+    <footer id="contact" class="py-20 border-t border-slate-900">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-white mb-10">Let's Connect</h2>
+            <div class="flex justify-center flex-wrap gap-6 mb-16">
+                <a href="https://www.facebook.com/pawan.shrestha.228123/" target="_blank" class="w-14 h-14 rounded-full bg-slate-900 flex items-center justify-center hover:bg-blue-600 transition text-2xl"><i class="fab fa-facebook-f"></i></a>
+                <a href="viber://chat?number=%2B9779810036277" class="w-14 h-14 rounded-full bg-slate-900 flex items-center justify-center hover:bg-purple-600 transition text-2xl"><i class="fab fa-viber"></i></a>
+                <a href="https://wa.me/9779810036277" target="_blank" class="w-14 h-14 rounded-full bg-slate-900 flex items-center justify-center hover:bg-green-600 transition text-2xl"><i class="fab fa-whatsapp"></i></a>
+                <a href="tel:+9779810036277" class="w-14 h-14 rounded-full bg-slate-900 flex items-center justify-center hover:bg-orange-600 transition text-2xl"><i class="fas fa-phone"></i></a>
+            </div>
+            <p class="text-slate-500 text-sm tracking-widest uppercase">Portfolio 2025 &bull; pawanshrestha555.com.np</p>
+        </div>
+    </footer>
 
-	    <div class="product-desc">
-		<img src="images/image_7.jpg">
-		<div class="product-details">
-		<h4>Levi's Hoodie</h4>
-         <div class="rating">
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-regular fa-star"></i>
-         </div>
-		<h4>$75.00</h4>
-	</div>
-	    </div>
-
-	    <div class="product-desc">
-		<img src="images/image_8.jpg">
-		<div class="product-details">
-		<h4>Levi's Hoodie</h4>
-         <div class="rating">
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-regular fa-star"></i>
-         </div>
-		<h4>$75.00</h4>
-	</div>
-	    </div>
-	
-	</div>
-	</div>
-
-	<div class="featured">
-		<div class="desc">
-		<h1>Latest Products</h1>
-		<div class="stroke"></div>
-	</div>
-	<div class="products">
-		<div class="product-desc">
-		<img src="images/image_9.jpg">
-		<div class="product-details">
-		<h4>Levi's Hoodie</h4>
-         <div class="rating">
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-regular fa-star"></i>
-         </div>
-		<h4>$75.00</h4>
-	</div>
- </div>
-
-      <div class="product-desc">
-		<img src="images/image_10.jpg">
-		<div class="product-details">
-		<h4>Levi's Hoodie</h4>
-         <div class="rating">
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-regular fa-star"></i>
-         </div>
-		<h4>$75.00</h4>
-	</div>
-	    </div>
-
-	    <div class="product-desc">
-		<img src="images/image_11.jpg">
-		<div class="product-details">
-		<h4>Levi's Hoodie</h4>
-         <div class="rating">
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-regular fa-star"></i>
-         </div>
-		<h4>$75.00</h4>
-	</div>
-	    </div>
-
-	    <div class="product-desc">
-		<img src="images/image_12.jpg">
-		<div class="product-details">
-		<h4>Levi's Hoodie</h4>
-         <div class="rating">
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-regular fa-star"></i>
-         </div>
-		<h4>$75.00</h4>
-	</div>
-	    </div>
-
-	    <div class="products">
-		<div class="product-desc">
-		<img src="images/image_13.jpg">
-		<div class="product-details">
-		<h4>Levi's Hoodie</h4>
-         <div class="rating">
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-regular fa-star"></i>
-         </div>
-		<h4>$75.00</h4>
-	</div>
- </div>
-
-      <div class="product-desc">
-		<img src="images/image_14.jpg">
-		<div class="product-details">
-		<h4>Levi's Hoodie</h4>
-         <div class="rating">
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-regular fa-star"></i>
-         </div>
-		<h4>$75.00</h4>
-	</div>
-	    </div>
-
-	    <div class="product-desc">
-		<img src="images/image_15.jpg">
-		<div class="product-details">
-		<h4>Levi's Hoodie</h4>
-         <div class="rating">
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-regular fa-star"></i>
-         </div>
-		<h4>$75.00</h4>
-	</div>
-	    </div>
-
-	    <div class="product-desc">
-		<img src="images/image_16.jpg">
-		<div class="product-details">
-		<h4>Levi's Hoodie</h4>
-         <div class="rating">
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-regular fa-star"></i>
-         </div>
-		<h4>$75.00</h4>
-	</div>
-	    </div>
-</div>
-</div>
-</div>
-
-<div class="deal">
-
-	        <div class="banner-img">
-				<img src="images/Boat.png">
-			</div>
-
-			<div class="banner-desc">
-				<p>Great Deals</p>
-				<h1>Boat Headphones</h1>
-				<h6>The Boat Headphones are absolutely worth the ~$40 price tag. It's once again the best cheap Headphones you can buy, hands down. Just remember you're making some sacrifices for that lower price tag.</h6>
-				<button><div class="btn-text">Buy Now</div></button>
-			</div>
-		</div>
-<div class="reviews-col">
-		<div class="reviews">
-			<i class="fa-solid fa-quote-left"></i>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			teoident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			<div class="rating">
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-regular fa-star"></i>
-         </div>
-         <img src="images/sardeep.png">
-         <p>Dishu</p>
-		</div>
-
-		<div class="reviews">
-			<i class="fa-solid fa-quote-left"></i>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			teoident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			<div class="rating">
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-regular fa-star"></i>
-         </div>
-         <img src="images/gagan.png">
-         <p>Dishu</p>
-		</div>
-
-		<div class="reviews">
-			<i class="fa-solid fa-quote-left"></i>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			teoident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			<div class="rating">
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-solid fa-star"></i>
-         	<i class="fa-regular fa-star"></i>
-         </div>
-         <img src="images/dishu.png">
-         <p>Dishu</p>
-		</div>
-  </div>
-<div class="sponsors"><h1>OUR SPONSORS</h1></div>
-  <div class="brands">
-  	<img src="images/coca-cola.png">
-  	<img src="images/paypal.png">
-  	<img src="images/oppo.png">
-  	<img src="images/philips.png">
-  	<img src="images/godrej.png">
-  </div>
-  <footer>
-  	<div class="footer">
-  	<div class="row-1">
-  		<h1>Our Application</h1>
-  		<p>Download Our App for IOS and Android</p>
-  		<img src="images/app-store.png">
-
-  	</div>
-  	<div class="row-2">
-  		<img src="images/Gs_logo-2.png">
-  		<p>We Focus on Goods Meeting User Requirements</p>
-  	</div>
-  	<div class="row-3">
-  		<h1>Useful Links</h1>
-  		<p>Blogs</p>
-  		<p>Ratings</p>
-  		<p>Returns</p>
-  		<p>Terms and Conditions</p>
-  	</div>
-  	<div class="row-4">
-  		<h1>Follow us</h1>
-  		<p>Instagram</p>
-  		<p>Twitter</p>
-  		<p>Youtube</p>
-  		<p>Facebook</p>
-  	</div>
-  </div>
-  <div class="footer-bottom">
-  <div class="stroke"></div>
-  <h1>&copy Copyright 2022</h1>
-  <p>Designed and Created By Gagandeep Singh</p>
-</div>
-  </footer>
-  <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
