@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Special Surprise For You</title>
+    <title>A Special Surprise</title>
     <style>
         :root {
             --primary: #ffadad;
@@ -21,23 +21,33 @@
             margin: 0;
             overflow: hidden;
             font-family: 'Arial', sans-serif;
+            touch-action: manipulation; /* Optimizes for mobile tapping */
         }
 
-        /* --- Envelope Styles --- */
         .container {
             position: relative;
             z-index: 10;
         }
 
-        .envelope-link {
-            text-decoration: none;
-            display: block;
-            outline: none;
-        }
-
         .envelope-wrapper {
             position: relative;
             cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        /* Active class for mobile tap support */
+        .envelope-wrapper.active .envelope::before {
+            transform: rotateX(180deg);
+            z-index: 0;
+        }
+
+        .envelope-wrapper.active .letter {
+            transform: translateY(-120px);
+            z-index: 2;
+        }
+
+        .envelope-wrapper.active .heart {
+            opacity: 0;
         }
 
         .envelope {
@@ -49,7 +59,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        /* The Flap */
         .envelope::before {
             content: "";
             position: absolute;
@@ -62,7 +71,6 @@
             transition: transform 0.5s ease;
         }
 
-        /* The Letter */
         .letter {
             position: absolute;
             bottom: 0;
@@ -75,7 +83,6 @@
             transition: transform 0.5s ease;
             z-index: 1;
             border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.05);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -88,18 +95,6 @@
             text-align: center;
         }
 
-        /* --- Hover Animations --- */
-        .envelope-wrapper:hover .envelope::before {
-            transform: rotateX(180deg);
-            z-index: 0;
-        }
-
-        .envelope-wrapper:hover .letter {
-            transform: translateY(-120px);
-            z-index: 2;
-        }
-
-        /* The Heart Seal */
         .heart {
             position: absolute;
             top: 90px;
@@ -124,11 +119,7 @@
         .heart::before { left: -15px; }
         .heart::after { top: -15px; }
 
-        .envelope-wrapper:hover .heart {
-            opacity: 0;
-        }
-
-        /* --- Falling Hearts Background --- */
+        /* Falling Hearts */
         .heart-particle {
             position: fixed;
             top: -10vh;
@@ -149,43 +140,48 @@
 <body>
 
     <div class="container">
-        <a href="https://drive.google.com/drive/folders/1e5mCJAMHaSGMofxauCTwb9p3_vnW6DNO?usp=drive_link" target="_blank" class="envelope-link">
-            <div class="envelope-wrapper">
-                <div class="envelope">
-                    <div class="letter">
-                        <div class="text">
-                            <strong>To My Favorite Person,</strong>
-                            <p>I put all our best memories in one place. ❤️</p>
-                            <p style="font-size: 11px; margin-top: 10px; color: var(--heart-color);">Click the envelope to open</p>
-                        </div>
+        <div class="envelope-wrapper" id="envelope">
+            <div class="envelope">
+                <div class="letter">
+                    <div class="text">
+                        <strong>To My Favorite Person,</strong>
+                        <p>I put all our memories in one place. ❤️</p>
+                        <p style="font-size: 10px; margin-top: 5px; color: var(--heart-color);">Tap once to open<br>Double-tap for memories</p>
                     </div>
                 </div>
-                <div class="heart"></div>
             </div>
-        </a>
+            <div class="heart"></div>
+        </div>
     </div>
 
     <script>
+        const envelope = document.getElementById('envelope');
+        const driveLink = "https://drive.google.com/drive/folders/1e5mCJAMHaSGMofxauCTwb9p3_vnW6DNO?usp=drive_link";
+
+        // Toggle 'open' state on single click/tap
+        envelope.addEventListener('click', function() {
+            this.classList.toggle('active');
+        });
+
+        // Redirect on double click/tap
+        envelope.addEventListener('dblclick', function() {
+            window.open(driveLink, '_blank');
+        });
+
+        // Falling Hearts Generator
         function createHeart() {
             const heart = document.createElement('div');
             heart.classList.add('heart-particle');
             heart.style.left = Math.random() * 100 + "vw";
             heart.style.animationDuration = Math.random() * 3 + 2 + "s";
             heart.style.opacity = Math.random();
-            heart.style.fontSize = Math.random() * 20 + 10 + "px";
-            
             const heartTypes = ['❤️', '💖', '✨', '🌸', '💕'];
             heart.innerText = heartTypes[Math.floor(Math.random() * heartTypes.length)];
-            
             document.body.appendChild(heart);
-            
-            setTimeout(() => {
-                heart.remove();
-            }, 5000);
+            setTimeout(() => heart.remove(), 5000);
         }
-
         setInterval(createHeart, 300);
     </script>
-    
+
 </body>
 </html>
