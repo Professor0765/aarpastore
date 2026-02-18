@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>A Special Surprise</title>
     <style>
         :root {
@@ -21,7 +21,8 @@
             margin: 0;
             overflow: hidden;
             font-family: 'Arial', sans-serif;
-            touch-action: manipulation; /* Optimizes for mobile tapping */
+            /* Prevents the grey highlight box on mobile tap */
+            -webkit-tap-highlight-color: transparent;
         }
 
         .container {
@@ -35,18 +36,18 @@
             transition: transform 0.3s ease;
         }
 
-        /* Active class for mobile tap support */
-        .envelope-wrapper.active .envelope::before {
+        /* State for when the envelope is open */
+        .envelope-wrapper.open .envelope::before {
             transform: rotateX(180deg);
             z-index: 0;
         }
 
-        .envelope-wrapper.active .letter {
+        .envelope-wrapper.open .letter {
             transform: translateY(-120px);
             z-index: 2;
         }
 
-        .envelope-wrapper.active .heart {
+        .envelope-wrapper.open .heart {
             opacity: 0;
         }
 
@@ -86,13 +87,13 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            text-align: center;
         }
 
         .text {
             color: #444;
             font-size: 14px;
-            line-height: 1.5;
-            text-align: center;
+            line-height: 1.4;
         }
 
         .heart {
@@ -146,7 +147,9 @@
                     <div class="text">
                         <strong>To My Favorite Person,</strong>
                         <p>I put all our memories in one place. ❤️</p>
-                        <p style="font-size: 10px; margin-top: 5px; color: var(--heart-color);">Tap once to open<br>Double-tap for memories</p>
+                        <p style="font-size: 10px; color: var(--heart-color); font-weight: bold;">
+                            TAP to open<br>DOUBLE TAP for memories
+                        </p>
                     </div>
                 </div>
             </div>
@@ -157,15 +160,32 @@
     <script>
         const envelope = document.getElementById('envelope');
         const driveLink = "https://drive.google.com/drive/folders/1e5mCJAMHaSGMofxauCTwb9p3_vnW6DNO?usp=drive_link";
+        
+        let lastTap = 0;
 
-        // Toggle 'open' state on single click/tap
-        envelope.addEventListener('click', function() {
-            this.classList.toggle('active');
+        envelope.addEventListener('touchstart', function(e) {
+            const currentTime = new Date().getTime();
+            const tapLength = currentTime - lastTap;
+            
+            // Toggle open/close on the first tap
+            if (!envelope.classList.contains('open')) {
+                envelope.classList.add('open');
+            }
+
+            // Detect double tap (within 300ms)
+            if (tapLength < 300 && tapLength > 0) {
+                window.open(driveLink, '_blank');
+                e.preventDefault(); // Prevents zoom
+            }
+            
+            lastTap = currentTime;
         });
 
-        // Redirect on double click/tap
-        envelope.addEventListener('dblclick', function() {
-            window.open(driveLink, '_blank');
+        // Also keep click for desktop users
+        envelope.addEventListener('click', function() {
+            if (!window.matchMedia("(pointer: coarse)").matches) {
+                envelope.classList.toggle('open');
+            }
         });
 
         // Falling Hearts Generator
